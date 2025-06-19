@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="ticket_vente" 
+              pageWidth="226" pageHeight="566" columnWidth="186" 
+              leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+    
+    <!-- Paramètres -->
+    <parameter name="nomPharmacie" class="java.lang.String"/>
+    <parameter name="adressePharmacie" class="java.lang.String"/>
+    <parameter name="telephonePharmacie" class="java.lang.String"/>
+    <parameter name="numeroTicket" class="java.lang.String"/>
+    <parameter name="dateVente" class="java.lang.String"/>
+    <parameter name="pharmacien" class="java.lang.String"/>
+    <parameter name="montantTotal" class="java.lang.String"/>
+    <parameter name="montantPercu" class="java.lang.String"/>
+    <parameter name="montantRendu" class="java.lang.String"/>
+    
+    <!-- Champs des produits qui proviennent de la source de données principale -->
+    <field name="nom" class="java.lang.String"/>
+    <field name="quantite" class="java.lang.Integer"/>
+    <field name="prixUnitaire" class="java.lang.String"/>
+    <field name="prixTotal" class="java.lang.String"/>
+    
+    <title>
+        <band height="80" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="186" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{nomPharmacie}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="20" width="186" height="30"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA[$P{adressePharmacie}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="50" width="186" height="20"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA["Tél: " + $P{telephonePharmacie}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="0" y="75" width="186" height="1"/>
+            </line>
+        </band>
+    </title>
+    
+    <pageHeader>
+        <band height="80" splitType="Stretch">
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="5" width="186" height="20"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Ticket N°: " + $P{numeroTicket}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="25" width="186" height="20"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Date: " + $P{dateVente}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="0" y="45" width="186" height="20"/>
+                <textElement>
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA["Pharmacien: " + $P{pharmacien}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="0" y="75" width="186" height="1"/>
+            </line>
+        </band>
+    </pageHeader>
+    
+    <columnHeader>
+        <band height="30" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="0" width="70" height="20"/>
+                <textElement>
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Produit]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="70" y="0" width="30" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Qté]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="100" y="0" width="40" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Prix U.]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="140" y="0" width="46" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Total]]></text>
+            </staticText>
+            <line>
+                <reportElement x="0" y="25" width="186" height="1"/>
+            </line>
+        </band>
+    </columnHeader>
+    
+    <detail>
+        <band height="25" splitType="Stretch">
+            <textField textAdjust="StretchHeight" isBlankWhenNull="true">
+                <reportElement x="0" y="0" width="70" height="20"/>
+                <textElement>
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{nom}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="70" y="0" width="30" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{quantite}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="100" y="0" width="40" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{prixUnitaire}]]></textFieldExpression>
+            </textField>
+            <textField isBlankWhenNull="true">
+                <reportElement x="140" y="0" width="46" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="9"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{prixTotal}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    
+    <columnFooter>
+        <band height="90" splitType="Stretch">
+            <line>
+                <reportElement x="0" y="0" width="186" height="1"/>
+            </line>
+            <staticText>
+                <reportElement x="0" y="10" width="130" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <text><![CDATA[TOTAL:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="130" y="10" width="56" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{montantTotal}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="30" width="130" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[MONTANT PERÇU:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="130" y="30" width="56" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{montantPercu}]]></textFieldExpression>
+            </textField>
+            <staticText>
+                <reportElement x="0" y="50" width="130" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[MONTANT RENDU:]]></text>
+            </staticText>
+            <textField isBlankWhenNull="true">
+                <reportElement x="130" y="50" width="56" height="20"/>
+                <textElement textAlignment="Right">
+                    <font size="10"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$P{montantRendu}]]></textFieldExpression>
+            </textField>
+            <line>
+                <reportElement x="0" y="80" width="186" height="1"/>
+            </line>
+        </band>
+    </columnFooter>
+    
+    <pageFooter>
+        <band height="50" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="10" width="186" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[Merci de votre achat!]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="30" width="186" height="20"/>
+                <textElement textAlignment="Center">
+                    <font size="10"/>
+                </textElement>
+                <text><![CDATA[À bientôt!]]></text>
+            </staticText>
+        </band>
+    </pageFooter>
+</jasperReport> 

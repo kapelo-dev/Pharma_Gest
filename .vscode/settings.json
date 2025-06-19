@@ -1,0 +1,43 @@
+{
+    "java.project.sourcePaths": ["src/main/java"],
+    "java.project.outputPath": "target/classes",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ],
+    "java.configuration.updateBuildConfiguration": "automatic",
+    "java.import.maven.enabled": true,
+    "java.maven.downloadSources": true,
+    "editor.formatOnSave": true,
+    "java.format.enabled": true,
+    "java.completion.importOrder": [
+        "java",
+        "javax",
+        "com",
+        "org"
+    ],
+    "java.sources.organizeImports.starThreshold": 99,
+    "java.sources.organizeImports.staticStarThreshold": 99,
+    
+    // Configurations supplémentaires pour aider avec les erreurs de package
+    "java.project.exportJar.targetPath": "${workspaceFolder}/target/${workspaceFolderBasename}.jar",
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-11",
+            "path": "C:\\Program Files\\Java\\jdk-11",
+            "default": true
+        }
+    ],
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -javaagent:\"${extensionPath}\\server\\lombok.jar\"",
+    "files.exclude": {
+        "**/.classpath": false,
+        "**/.project": false,
+        "**/.settings": false,
+        "**/target": false
+    },
+    "java.dependency.packagePresentation": "hierarchical",
+    "java.dependency.syncWithFolderExplorer": true,
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.autobuild.enabled": true,
+    "maven.executable.preferMavenWrapper": true,
+    "editor.suggest.showKeywords": true
+} 
